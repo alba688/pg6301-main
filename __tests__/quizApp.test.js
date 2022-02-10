@@ -34,4 +34,14 @@ describe("The quiz application", () => {
           .expect({ result: "incorrect"});
    });
 
+   it("counts number of right and wrong answers", async () => {
+      const agent = request(app);
+      await agent.post("/quiz/answer").send({ id: 101, answer: "answer_a" });
+      await agent.post("/quiz/answer").send({ id: 102, answer: "answer_a" });
+      await agent
+          .get("/quiz/score")
+          .expect(200)
+          .expect({ answered: 2, correct: 1 });
+   });
+
 });
