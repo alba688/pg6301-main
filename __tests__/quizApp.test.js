@@ -15,4 +15,11 @@ describe("The quiz application", () => {
       });
    });
 
+   it("responds to correct answers", async () => {
+      await request(app)
+          .post("/quiz/answer")
+          .send({ id: 101, answer: "answer_b"})
+          .expect({ result: "correct"});
+   })
+
 });
