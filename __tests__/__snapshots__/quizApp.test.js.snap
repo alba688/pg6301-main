@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The quiz application returns a random question 1`] = `
+Object {
+  "answers": Any<Object>,
+  "id": Any<Number>,
+  "question": Any<String>,
+}
+`;

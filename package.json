@@ -9,10 +9,9 @@
     "dev": "nodemon server.js",
     "format": "prettier --write \"**/*.{tsx,jsx,ts,js,html,json}\"",
     "format:check": "prettier --check \"**/*.{tsx,jsx,ts,js,html,json}\"",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "prepare": "husky install",
     "verify": "npm run format:check && jest --collectCoverage"
-
   },
   "repository": {
     "type": "git",
@@ -30,11 +29,27 @@
   },
   "devDependencies": {
     "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
     "babel-jest": "^27.5.1",
     "husky": "^7.0.4",
     "jest": "^27.5.1",
     "nodemon": "^2.0.15",
+    "parcel": "^2.3.1",
     "prettier": "^2.5.1",
+    "supertest": "^6.2.2",
     "typescript": "^4.5.5"
+  },
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ],
+      "@babel/preset-react"
+    ]
   }
 }
