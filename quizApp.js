@@ -15,5 +15,5 @@ QuizApp.post("/answer", (req, res) => {
     // set a cookie
     // read cookie in /score
 
-    res.end();
+    res.json({ result: "correct"});
 })
