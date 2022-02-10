@@ -1,7 +1,9 @@
 import express from "express";
-import {randomQuestion} from "./questions.js";
+import bodyParser from "body-parser";
+import {randomQuestion, isCorrectAnswer, Questions} from "./questions.js";
 
 export const QuizApp = express.Router();
+QuizApp.use(bodyParser.json());
 
 QuizApp.get("/random", (req, res) => {
     // res.send("Test random question");
@@ -14,6 +16,8 @@ QuizApp.post("/answer", (req, res) => {
     // check if answer is correct or incorrect
     // set a cookie
     // read cookie in /score
-
-    res.json({ result: "correct"});
+    const { id, answer } = req.body;
+    const question = Questions.find((q) => q.id === id);
+    const result = isCorrectAnswer(question, answer) ? "correct" : "incorrect";
+    res.json({ result });
 })
