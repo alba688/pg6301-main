@@ -13,7 +13,12 @@ describe("The quiz application", () => {
          question: expect.any(String),
          answers: expect.any(Object)
       });
+      expect(response.body).not.toHaveProperty("correct_answers");
    });
+
+   it("returns 404 on incorrect question", async () => {
+      await request(app).post("/quiz/answer").send({ id: -432 }).expect(404);
+   })
 
    it("responds to correct answers", async () => {
       await request(app)
