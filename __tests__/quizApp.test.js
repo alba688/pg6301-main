@@ -22,4 +22,11 @@ describe("The quiz application", () => {
           .expect({ result: "correct"});
    })
 
+   it("responds to incorrect answers", async () => {
+      await request(app)
+          .post("/quiz/answer")
+          .send({ id: 101, answer: "answer_d"})
+          .expect({ result: "incorrect"});
+   })
+
 });
