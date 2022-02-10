@@ -2,9 +2,16 @@
   "name": "pg6301-main",
   "version": "1.0.0",
   "description": "Task 4",
-  "main": "questions.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.ts",
+    "dev": "nodemon server.js",
+    "format": "prettier --write \"**/*.{tsx,jsx,ts,js,html,json}\"",
+    "format:check": "prettier --check \"**/*.{tsx,jsx,ts,js,html,json}\"",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky install",
+    "verify": "npm run format:check && jest --collectCoverage"
+
   },
   "repository": {
     "type": "git",
