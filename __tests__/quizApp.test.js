@@ -1,13 +1,17 @@
 import express from "express";
+import bodyParser from "body-parser";
+import cookieParser from "cookie-parser";
 import request from "supertest";
 import {QuizApp} from "../quizApp.js";
 
 const app = express();
+app.use(bodyParser.json());
+app.use(cookieParser("test secret"));
 app.use("/quiz", QuizApp);
 
 describe("The quiz application", () => {
    it("returns a random question", async () => {
-      const response = await request(app).get("/quiz/random").expect(200);
+      const response = await request.agent(app).get("/quiz/random").expect(200);
       expect(response.body).toMatchSnapshot({
          id: expect.any(Number),
          question: expect.any(String),
@@ -35,7 +39,7 @@ describe("The quiz application", () => {
    });
 
    it("counts number of right and wrong answers", async () => {
-      const agent = request(app);
+      const agent = request.agent(app);
       await agent.post("/quiz/answer").send({ id: 101, answer: "answer_a" });
       await agent.post("/quiz/answer").send({ id: 102, answer: "answer_a" });
       await agent
