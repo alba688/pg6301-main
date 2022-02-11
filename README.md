@@ -1,4 +1,5 @@
 [![Run tests](https://github.com/alba688/pg6301-main/actions/workflows/test.yml/badge.svg)](https://github.com/alba688/pg6301-main/actions/workflows/test.yml)
+[![Coverage Status](https://coveralls.io/repos/github/alba688/pg6301-main/badge.svg)](https://coveralls.io/github/alba688/pg6301-main)
 
 ### Lecture 4: Implementing server code on Express
 
