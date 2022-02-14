@@ -1,6 +1,5 @@
 [![Run tests](https://github.com/alba688/pg6301-main/actions/workflows/test.yml/badge.svg)](https://github.com/alba688/pg6301-main/actions/workflows/test.yml)
-[![Coverage Status](https://coveralls.io/repos/github/alba688/pg6301-main/badge.svg)](https://coveralls.io/github/alba688/pg6301-main)
-
+[![Coverage Status](https://coveralls.io/repos/github/alba688/pg6301-main/badge.svg?branch=task-04)](https://coveralls.io/github/alba688/pg6301-main?branch=task-04)
 ### Lecture 4: Implementing server code on Express
 
 Express and supertest
