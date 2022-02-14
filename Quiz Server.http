@@ -1,0 +1,25 @@
+
+## Quiz question
+
+GET {{server}}/quiz
+
+### Correct answer
+POST {{server}}/quiz/answer
+Content-Type: application/json
+
+{
+  "id": 101,
+  "answer": "answer_b"
+}
+
+### Incorrect answer
+POST {{server}}/quiz/answer
+Content-Type: application/json
+
+{
+  "id": 101,
+  "answer": "answer_d"
+}
+
+### Get score
+GET {{server}}/quiz/score
