@@ -1,6 +1,7 @@
 import express from "express";
 
 const app = express();
+app.use(express.static("public"));
 
 app.get("/login", (req, res, next) => {
   res.json({ username: "Noen André Persson" });
