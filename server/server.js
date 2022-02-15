@@ -1,11 +1,16 @@
 import express from "express";
+import { randomQuestion } from "./questions.js";
+import bodyParser from "body-parser";
 
 const app = express();
 app.use(express.static("../client/dist"));
+app.use(bodyParser.json());
 
 app.get("/quiz", (req, res, next) => {
-  res.json({ question: "Test Question Task 5?" });
+  const question = randomQuestion();
+  res.json(question);
 });
+
 app.post("/quiz", (req, res, next) => {
   res.sendStatus(401);
 });
