@@ -6,6 +6,8 @@
   "scripts": {
     "start": "cd server && npm start",
     "build": "cd server && npm install",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx}\"",
+    "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx}\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,5 +20,9 @@
   "bugs": {
     "url": "https://github.com/alba688/pg6301-main/issues"
   },
-  "homepage": "https://github.com/alba688/pg6301-main#readme"
+  "homepage": "https://github.com/alba688/pg6301-main#readme",
+  "dependencies": {
+    "concurrently": "^7.0.0",
+    "prettier": "^2.5.1"
+  }
 }
