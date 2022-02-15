@@ -1,6 +1,7 @@
 import express from "express";
 
 const app = express();
+app.use(express.static("public"));
 
 app.get("/quiz", (req, res, next) => {
   res.json({ question: "Test Question Task 5?" });
