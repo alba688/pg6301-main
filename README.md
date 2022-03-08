@@ -1,7 +1,7 @@
 # PG6301 Web Development and API design
 
-* [ ] React and Express app (npm init & install)
-* [ ] Deploy to Heroku via Heroku GIT
+* [x] React and Express app (npm init & install)
+* [x] Deploy to Heroku via Heroku GIT
    * Heroku command line tool
    * Heroku login
    * Heroku git:remote
