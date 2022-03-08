@@ -1,22 +1,10 @@
-import express, {Router} from "express";
+import express from "express";
 import * as path from "path";
+import {MoviesApi} from "./moviesApi.js";
 
 const app = express();
 
-const Movies = new Router();
-
-Movies.get("/api/movies", (req,res) => {
-    res.json([
-        {
-            title: "Movie 1"
-        },
-        {
-            title: "Movie 2"
-        }
-    ]);
-});
-
-app.use(Movies);
+app.use("/api/movies", MoviesApi());
 
 app.use(express.static("../client/dist/"));
 
