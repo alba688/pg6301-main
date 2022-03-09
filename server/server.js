@@ -11,7 +11,9 @@ const app = express();
 const mongoClient = new MongoClient(process.env.MONGODB_URL);
 mongoClient.connect().then(async () => {
     console.log("Connected to mongodb");
-    app.use("/api/movies", MoviesApi(mongoClient.db("lecture-07")));
+    app.use(
+        "/api/movies",
+        MoviesApi(mongoClient.db(process.env.MONGODB_DATABASE || "lecture-07")));
 });
 
 app.use(express.static("../client/dist/"));
