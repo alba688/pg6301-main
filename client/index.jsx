@@ -3,6 +3,10 @@ import ReactDOM from "react-dom";
 import {BrowserRouter, Link, Route, Routes, useNavigate} from "react-router-dom";
 
 function FrontPage() {
+    async function handleLogout() {
+        await fetch("/api/login", { method: "delete" });
+    }
+
     return (
         <div>
             <h1>Front Page</h1>
@@ -11,6 +15,9 @@ function FrontPage() {
             </div>
             <div>
                 <Link to="/profile">Profile</Link>
+            </div>
+            <div>
+                <button onClick={handleLogout}>Log out</button>
             </div>
         </div>
     );
@@ -110,6 +117,7 @@ function Profile() {
             <div>
                 <img src={data.picture} alt={"Profile picture"} />
             </div>
+            <div>{JSON.stringify(data)}</div>
         </div>
     );
 }
