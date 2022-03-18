@@ -5,7 +5,7 @@ import {BrowserRouter, Link, Route, Routes} from "react-router-dom";
 function FrontPage() {
     return (
         <div>
-            <h1>Front Page</h1>
+            <h1>Chat Application</h1>
             <div>
                 <Link to="/login">Login</Link>
             </div>
@@ -22,7 +22,6 @@ function Application() {
             <Routes>
                 <Route path={"/"} element={<FrontPage />} />
                 <Route path={"/login"} element={<h1>Login</h1>} />
-                <Route path={"/login/callback"} element={<h1>Login callback</h1>} />
                 <Route path={"/profile"} element={<h1>Profile</h1>} />
             </Routes>
         </BrowserRouter>
