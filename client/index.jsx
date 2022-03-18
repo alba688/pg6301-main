@@ -1,31 +1,50 @@
-import React from "react";
+import React, {useState} from "react";
 import ReactDOM from "react-dom";
-import {BrowserRouter, Link, Route, Routes} from "react-router-dom";
 
-function FrontPage() {
+function Login({ onLogin }) {
+    const [username, setUsername] = useState("");
+    function handleSubmit(event) {
+        event.preventDefault();
+        onLogin(username);
+    }
+
     return (
         <div>
-            <h1>Chat Application</h1>
-            <div>
-                <Link to="/login">Login</Link>
-            </div>
-            <div>
-                <Link to="/profile">Profile</Link>
-            </div>
+            <h1>Please log in</h1>
+            <form onSubmit={handleSubmit}>
+                <label>
+                    Username:
+                    <input
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                    />
+                </label>
+                <button>Login</button>
+            </form>
         </div>
     );
 }
 
-function Application() {
+function ChatApplication({username}) {
+
     return (
-        <BrowserRouter>
-            <Routes>
-                <Route path={"/"} element={<FrontPage />} />
-                <Route path={"/login"} element={<h1>Login</h1>} />
-                <Route path={"/profile"} element={<h1>Profile</h1>} />
-            </Routes>
-        </BrowserRouter>
-    );
+        <div className="application">
+            <header>Chat application</header>
+            <main>Here is the main content</main>
+            <footer>Here is the footer</footer>
+        </div>
+    )
 }
+
+function Application() {
+    const [username, setUsername] = useState();
+
+    if (!username) {
+        return <Login onLogin={(username) => setUsername(username)} />;
+    }
+
+    return <ChatApplication username={username} />;
+}
+
 
 ReactDOM.render(<Application />, document.getElementById("app"));
