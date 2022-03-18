@@ -26,14 +26,22 @@ function Login({ onLogin }) {
 }
 
 function ChatApplication({username}) {
+    function handleNewMessage(event) {
+        event.preventDefault();
+    }
 
     return (
-        <div className="application">
-            <header>Chat application</header>
+        <div className={"application"}>
+            <header>Chat application {username}</header>
             <main>Here is the main content</main>
-            <footer>Here is the footer</footer>
+            <footer>
+                <form onSubmit={handleNewMessage}>
+                    <input />
+                    <button>Submit</button>
+                </form>
+            </footer>
         </div>
-    )
+    );
 }
 
 function Application() {
