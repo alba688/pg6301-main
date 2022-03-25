@@ -11,10 +11,8 @@ function MovieCard({movie: {title, plot, poster}}) {
     );
 }
 
-export function ListMovies() {
-    const {loading, error, data} = useLoading(async () =>
-        fetchJSON("/api/movies")
-    );
+export function ListMovies({ listMovies }) {
+    const { loading, error, data } = useLoading(listMovies);
 
     if (loading) {
         return <div>Loading...</div>;
