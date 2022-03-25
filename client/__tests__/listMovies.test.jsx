@@ -4,6 +4,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import {act} from "react-dom/test-utils";
 
+
 describe("ListMovies component", () => {
     it("shows loading screen", () => {
         const domElement = document.createElement("div");
@@ -17,6 +18,10 @@ describe("ListMovies component", () => {
         await act(async () => {
             ReactDOM.render(<ListMovies listMovies={() => movies} />, domElement);
         });
+
+        expect(
+            Array.from(domElement.querySelectorAll("h3")).map((e) => e.innerHTML)
+        ).toEqual(["movie 1", "movie 2"]);
         expect(domElement.innerHTML).toMatchSnapshot();
     });
 });
